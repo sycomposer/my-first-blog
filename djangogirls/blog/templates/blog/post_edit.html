@@ -1,0 +1,13 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <h1>New post</h1>
+    <!-- form이 post방식이기 때문에 {% csrf_token %}사용-->
+    <form method="POST" class="post-form">{% csrf_token %}
+    <!-- <form>은 action 속성이 목적지를 나타냄, 그러나 현재는views.py에서 form 이라는 이름으로 목적지, 전달자료 양식, 관련정보를 모두 제공하고 있음
+    (Through model and fields variables inside class META!)
+    Therefore, you should be written as following this-->
+        {{ form.as_p }}
+        <button type="submit" class="save btn btn-default">Save</button>
+    </form>
+{% endblock %}
